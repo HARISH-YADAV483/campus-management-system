@@ -12,11 +12,11 @@ const path = require("path");
 const sharedSession = require("express-socket.io-session");
 require("dotenv").config();
 const User = require("./models/User");
-
+const Record = require("./models/Record");
 const app = express();
 
 // 🔹 ADD THIS near the top of app.js (after imports)
-const records = [];
+// const records = [];
 
 const server = http.createServer(app);
 const io = new Server(server);
@@ -25,14 +25,16 @@ app.use(bodyParser.json());
 // Middleware
 // Session middleware with proper configuration for Socket.IO sharing
 const sessionMiddleware = session({
-  secret: process.env.SESSION_SECRET || "fallback-secret-key",
-  resave: true,
+  secret: process.env.SESSION_SECRET,
+  resave: false,
   saveUninitialized: false,
   cookie: {
-    secure: false,
-    maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "lax",
+    maxAge: 24 * 60 * 60 * 1000
   }
 });
+app.set("trust proxy", 1);
 
 app.use(sessionMiddleware);
 app.use(express.urlencoded({ extended: true }));
@@ -45,8 +47,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 
 // MongoDB connection
-mongoose
-  .connect("mongodb://127.0.0.1:27017/bhi")
+mongoose.connect(process.env.MONGODB_URI)
   .then(async () => {
     console.log("MongoDB Connected");
 
@@ -270,7 +271,7 @@ app.post("/pro-auth", (req, res) => {
 
 
 //asdfghj
-app.get("/contribute", (req, res) => {
+app.get("/contribute", async(req, res) => {
   // 🔒 Protect route
   if (!req.session.proAccess) {
     return res.redirect("/pro");
@@ -283,19 +284,21 @@ app.get("/contribute", (req, res) => {
   );
 
   // 🧾 Generate table rows
-  const rows = records.map(r => `
-    <tr>
-      <td>${r.name}</td>
-      <td>${r.rollnumber}</td>
-      <td>${r.cntcnumber}</td>
-      <td>${r.place}</td>
-      <td>${r.startDate}</td>
-      <td>${r.endDate}</td>
-      <td>${r.totalDays}</td>
-      <td>${r.uploadTime}</td>
-      <td>${r.email}</td>
-    </tr>
-  `).join("");
+ const records = await Record.find().lean();
+
+const rows = records.map(r => `
+  <tr>
+    <td>${r.name}</td>
+    <td>${r.rollnumber}</td>
+    <td>${r.cntcnumber}</td>
+    <td>${r.place}</td>
+    <td>${r.startDate}</td>
+    <td>${r.endDate}</td>
+    <td>${r.totalDays}</td>
+    <td>${r.uploadTime}</td>
+    <td>${r.email}</td>
+  </tr>
+`).join("");
 
   // 🪄 Inject rows
   html = html.replace(
@@ -309,7 +312,7 @@ app.get("/contribute", (req, res) => {
 
 
 
-app.post("/add-entry", (req, res) => {
+app.post("/add-entry", async(req, res) => {
   const { name, cntcnumber, rollnumber, place, startDate, endDate, totalDays } = req.body;
 
   const now = new Date();
@@ -318,18 +321,28 @@ app.post("/add-entry", (req, res) => {
     dateStyle: "medium",
     timeStyle: "short"
   });
-
-  records.push({
-    name,
-    rollnumber,
-    cntcnumber,
-    place,
-    startDate,
-    endDate,
-    totalDays,
-    uploadTime,
-    email: req.session.user.email
-  });
+await Record.create({
+  name,
+  rollnumber,
+  cntcnumber,
+  place,
+  startDate,
+  endDate,
+  totalDays,
+  uploadTime,
+  email: req.session.user.email
+});
+  // records.push({
+  //   name,
+  //   rollnumber,
+  //   cntcnumber,
+  //   place,
+  //   startDate,
+  //   endDate,
+  //   totalDays,
+  //   uploadTime,
+  //   email: req.session.user.email
+  // });
 
   res.redirect("/?success=rebate");
 });
@@ -423,10 +436,10 @@ const otpStore = {}; // { email: otp }
 // Email transporter
 const transporter = nodemailer.createTransport({
   service: "gmail",
-  auth: {
-    user: "harish2puhaniya@gmail.com",
-    pass: "uvzxlytyobfjxnjl"
-  }
+ auth: {
+  user: process.env.EMAIL_USER,
+  pass: process.env.EMAIL_PASS
+}
 });
 
 // Generate OTP
@@ -575,7 +588,9 @@ io.on("connection", (socket) => {
 
 
 
-server.listen(3000, () => {
-  console.log("Server running on http://localhost:3000");
+const PORT = process.env.PORT || 3000;
+
+server.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
 // Server
