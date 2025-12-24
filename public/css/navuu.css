@@ -1,0 +1,107 @@
+@media  only screen and (min-width : 990px){
+    .navbar{
+display: none;
+    }
+    
+}
+@media  only screen and (max-width : 990px){
+    .jip{
+display: none;
+    }
+
+}
+
+
+.jip
+{ position: sticky;
+    top: 0px;
+    padding: 0;
+    margin-bottom: 23px;
+    background-color: #eee;
+    z-index: 1111;
+}
+
+.nav{
+    display: flex;
+    width: 100vw;
+   
+
+}
+.lefto{
+    display: block;
+
+}
+
+@media (max-width: 990px) {
+    .down{
+        display: none;
+    }
+}
+@media (min-width: 990px) {
+.nav{
+    justify-content: space-between;
+   
+  border: 1px solid #eee;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.36);
+}
+
+
+.lefto{
+    margin-left: 5vw;
+    line-height: 0px;
+
+}
+.righto{
+    margin-right: 5vw;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.mrzio{
+    display: flex;
+    list-style: none;
+    margin-top: 23px;
+    gap: 15px;
+    font-size: 19px;
+    color: rgb(46, 46, 46);
+    margin-bottom: 12px;
+    padding: 0;
+
+}
+.vb{
+    margin-bottom: 10px;
+}
+.down{
+    margin-bottom: 9px;
+}
+.iteml{
+            font-family: univers, Helvetica, Arial, sans-serif;
+    text-decoration: none;
+      color: rgb(0, 0, 0);
+      font-weight: lighter;
+      font-size: 18px;
+      margin-bottom: 14px;
+      
+}
+.iteml:hover{
+    color: black;
+}
+.H1{
+    margin-top: 12px;
+    color: green;
+    
+    letter-spacing: 4px;
+    font-size: 43px;
+ 
+
+  font-family: Raleway Dots;
+  font-weight: 400;
+  font-style: normal;
+
+
+
+
+
+}
+
+}

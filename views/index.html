@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="/images/whitokkr.png">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/slideshow.css">
+  <link rel="stylesheet" href="/css/navbar.css">
+  <link rel="stylesheet" href="/css/warden.css">
+  <link rel="stylesheet" href="/css/animation.css">
+  <link rel="stylesheet" href="/css/noti.css">
+  <link rel="stylesheet" href="/css/navuu.css">
+  <link rel="stylesheet" href="/css/mess.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Electrolize&family=Rubik+Moonrocks&display=swap"
+    rel="stylesheet">
+  <style>
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-box {
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      position: relative;
+      animation: pop 0.3s ease;
+    }
+  </style>
+  <title>Chakhardhar Bhawan (H-3)</title>
+</head>
+
+<body>
+  <div class="all" style="background-color:  rgba(255, 255, 255, 0.89); width: 100vw; overflow: hidden;">
+    <div class="jip">
+      <div class="nav">
+        <div class="lefto">
+          <div class="up">
+            <h1 class="H1">CHAKHADHAR BHAWAN</h1>
+          </div>
+          <div class="down">
+            <ul class="mrzio">
+              <li class="vb"><a href="/" class="iteml" style="border-bottom: 2px solid rgb(49, 49, 49);">Home</a></li>
+              <li><a href="/chatroom" class="iteml">Chatroom</a></li>
+             
+              <li><a href="/mess" class="iteml">Mess & Food</a></li>
+              
+              <li><a href="/facilities" class="iteml">Facilities</a></li>
+               <li><a href="/complaint" class="iteml">Complaint Box</a></li>
+
+
+
+              <li><a href="/superfood" class="iteml" class="super" style=" border-left: 1px solid rgb(58, 58, 58); ">
+                  &nbsp;&nbsp;&nbsp;Superfoods of India</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="righto"> <button type="button" class="btn btn-outline-success" id="authBtn">Login</button></div>
+      </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="  position: sticky ;
+    top: 0px; z-index: 1000;">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#" style="  font-family: Raleway Dots; color: green;" ;>Chakhardhar Bhawan</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/chatroom">Chatroom</a>
+            </li>
+            
+            <li class="nav-item">
+              <a class="nav-link" href="/mess">Mess & Food</a>
+            </li>
+            
+             <li class="nav-item">
+              <a class="nav-link" href="/facilities">Facilities</a>
+            </li>
+<li class="nav-item">
+              <a class="nav-link" href="/complaint">Complaint Box</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="/superfood"> Superfoods of India </a>
+            </li>
+           
+            
+           
+
+          </ul>
+          <div class="d-flex">
+            <button type="button" class="btn btn-outline-success" id="authBtni">Login</button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
+          aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"
+          aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
+          aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="/images/img2.jpeg" class="d-block imgo" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/images/img2.jpeg" class="d-block imgo" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="/images/img2.jpeg" class="d-block imgo" alt="...">
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions"
+        data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    <div class="introduction">
+      <h2>Introduction</h2>
+      <p class="po" style="color: rgb(37, 37, 37);     font-family: 'Raleway', sans-serif;">This platform has been specially developed for the welfare, support,
+        and overall benefit of the
+        students of Chakhardhar Bhawan. At National Institute of Technology, Kurukshetra, Chakhardhar Bhawan is
+        officially known as Hostel Number H-3. For the academic session 2025–26, this hostel has been primarily allotted
+        to first-year (fresher) students of the institute, helping them begin their college life in a safe, organized,
+        and supportive residential environment.
+
+        The hostel mainly accommodates students from the Information Technology (IT), Computer Science and Engineering
+        (CSE), Production Engineering, Artificial Intelligence and Data Science (AIDS), and Artificial Intelligence and
+        Machine Learning (AIML) branches.
+        <button type="button" class="btn btn-success" id="readme" style="height: 23px;">Read More</button>
+      <div class="readmore po" id="readmore" style="    font-family: 'Raleway', sans-serif;">
+        This allocation encourages interaction and collaboration among students from closely related technical
+        disciplines, promoting a healthy academic and social atmosphere.
+
+        Chakhardhar Bhawan is structurally divided into two main blocks: Block A and Block B. Each block consists of
+        three floors, and every floor contains fifteen well-planned rooms. Each room is designed to accommodate three
+        students, ensuring comfortable living while encouraging teamwork and peer bonding. In total, the hostel has 90
+        rooms and can accommodate more than 250 students, making it one of the key residential facilities for freshmen
+        at NIT Kurukshetra.</p>
+      </div>
+    </div>
+    <div class="noti">
+      <div class="killu reveal killul">
+        <div class="head">Announcements</div>
+        <div class="beech"><iframe src="/announcements" frameborder="0" class="bhuj" id="iframe"></iframe></div>
+        <div class="end"><a href="/announcements" style="text-decoration: none; color: rgb(10, 92, 10);">view all
+            &#45;&#45;&gt; </a>
+        </div>
+      </div>
+      <div class="killu reveal killur">
+        <div class="head">Notifications </div>
+        <div class="beech"><iframe src="/notifications" frameborder="0" class="bhuj" id="iframes"></iframe></div>
+        <div class="end"><a href="/notifications" style="text-decoration: none; color: rgb(10, 92, 10);">view all
+            &#45;&#45;&gt; </a></div>
+      </div>
+    </div>
+
+
+    <div class="maincon">
+      <h2 class="ha">Direct Messages</h2>
+
+      <div class="container">
+
+        <!-- Message 1 -->
+        <div class="card collapsed reveal">
+          <div class="image-section">
+            <img src="/images/warden 2.jpeg" class="avatar">
+            <div class="caption">
+              <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+              Rahul Sharma(Chief warden)
+            </div>
+            <button class="btni">Read More</button>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis fugiat quasi voluptate voluptatibus
+            natus vel, a adipisci vitae eius, nobis minus nesciunt quam. Voluptatum nobis voluptas, odio, maxime
+            praesentium, vitae mollitia obcaecati labore provident molestiae fugiat autem magnam eos. Eum natus quisquam
+            necessitatibus neque cum autem deleniti libero ullam ea labore, reiciendis obcaecati facere reprehenderit?
+            Tempore explicabo reiciendis architecto qui.
+          </div>
+        </div>
+
+        <!-- Message 2 -->
+        <div class="card collapsed reveal">
+          <div class="image-section">
+            <img src="/images/warden 2.jpeg" class="avatar">
+            <div class="caption">
+              <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+              Anjali Verma(warden H-3)
+            </div>
+            <button class="btni">Read More</button>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit voluptas possimus eius cumque eum error
+            iusto, exercitationem aut, vel veritatis porro, earum itaque! Necessitatibus quam suscipit molestias
+            laboriosam voluptatibus ex illum cumque praesentium odio? Impedit quia alias animi minus aperiam repellat
+            placeat eligendi error, totam porro vel, sapiente, dolores velit dolor quo non assumenda tempora! Incidunt
+            quidem nemo nobis animi.
+          </div>
+        </div>
+
+        <!-- Message 3 -->
+        <div class="card collapsed reveal">
+          <div class="image-section">
+            <img src="/images/warden 2.jpeg" class="avatar">
+            <div class="caption">
+              <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
+              Aman Gupta(Mess H-3)
+            </div>
+            <button class="btni">Read More</button>
+          </div>
+          <div class="content">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem dolores, nisi labore unde placeat
+            praesentium aut, aperiam modi illo eligendi similique explicabo sit a provident iusto minima quia voluptates
+            cupiditate magnam beatae animi magni amet! Temporibus accusantium quaerat ut sunt ullam in nam facere autem
+            voluptatibus cumque, provident omnis distinctio enim totam ad pariatur quod animi fugit ducimus eum cum.
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="saluu">
+      <div class="faqcontainer" style="text-decoration: underline; ">
+        Quick FAQs
+      </div>
+      <hr>
+
+      <div class="itemii" id="timings">
+
+        1. What is the closing timing of the main-gate in the hostel ? <div class="downarrow" style="margin-left : 9px"
+          id="foli"> ⬇ </div>
+
+      </div>
+      <div class="timiexplain itemii" id="pokemon" style="color: rgb(91, 91, 91);"></div>
+      <hr>
+      <div class="itemii" id="parking">
+        2. Can we park bike and cycles inside the hostel ? <div class="downarrow" style="margin-left : 9px" id="yuki"> ⬇
+        </div>
+      </div>
+      <div class="timiexplain itemii" id="pokemono" style="color: rgb(91, 91, 91);"></div>
+      <hr>
+      <div class="itemii" id="custom">
+        3. Limit of customization in room ? <div class="downarrow" style="margin-left : 9px" id="tuki"> ⬇ </div>
+      </div>
+      <div class="timiexplain itemii" id="pokemoni" style="color: rgb(91, 91, 91);"></div>
+      <hr>
+      <div class="itemii" id="electric">
+        4. Electrical appliances are allowed or not ? <div class="downarrow" style="margin-left : 9px" id="pooki"> ⬇
+        </div>
+      </div>
+      <div class="timiexplain itemii" id="pokemonp" style="color: rgb(91, 91, 91);"></div>
+      <hr>
+      <div class="itemii" id="bathroom">
+        5. What is the conditions of bathrooms inside the hostel ? <div class="downarrow" style="margin-left : 9px"
+          id="luki"> ⬇ </div>
+      </div>
+      <div class="timiexplain itemii" id="pokemonq" style="color: rgb(91, 91, 91);"></div>
+
+    </div>
+
+    <footer class="footer reveal" style="background-color: rgb(46, 46, 46); color: grey; margin-top: 12px;">
+      <div class="footer-container">
+
+        <!-- ABOUT US -->
+        <div class="footer-col">
+          <h3 style="margin-top: 12px; text-decoration: underline; color: grey;">ABOUT US</h3>
+          <p>Official Website of Hostel 3, NIT KKR
+            <br>Developed by Harish puhaniya
+          </p>
+
+          <ul class="contact">
+            <li><a href="https://maps.app.goo.gl/zq5dKq15gZLvgG4i7" style="color: grey;">📍 Hostel 3, NIT KKR, Thanesor,
+                136119</a></li>
+            <li>📞 +91 12345-67890</li>
+            <li>✉️ h3@nitkkr.ac.in</li>
+          </ul>
+
+          <div class="social">
+            <a href="#">🐦</a>
+            <a href="#">📘</a>
+            <a href="#">📺</a>
+            <a href="#">📸</a>
+            <a href="#">💼</a>
+          </div>
+        </div>
+
+        <!-- USEFUL LINK 1 -->
+        <div class="footer-col">
+          <h3 style="margin-top: 12px; text-decoration: underline; color: grey;">USEFUL LINK</h3>
+          <ul>
+            <li><a href="/" style="color: grey;">Home</a></li>
+            <li><a href="/" style="color: grey;">About Us</a></li>
+            <li><a href="/facilities" style="color: grey;">Sports</a></li>
+            <li><a href="/" style="color: grey;">Cult</a></li>
+            
+            <li><a href="/mess" style="color: grey;">Mess</a></li>
+           
+          </ul>
+        </div>
+
+        <!-- USEFUL LINK 2 -->
+       
+
+      </div>
+    </footer>
+    
+  </div>
+  <div class="popup" id="popup">
+    <div class="popup-box">
+      <span class="close-btn" onclick="closePopup()">✖</span>
+      <p id="popupMessage"></p>
+    </div>
+
+  </div>
+  <script>
+
+    const paramsi = new URLSearchParams(window.location.search);
+    const status = paramsi.get("status");
+
+    if (status === "success") {
+      alert("Complaint sent successfully!");
+      window.location.href = "/complaint";
+    }
+
+    if (status === "error") {
+      alert("Unable to make a complaint. Please try again.");
+      window.location.href = "/complaint";
+    }
+
+
+    function openPopup(message) {
+      document.getElementById("popupMessage").innerText = message;
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    // 🔔 Show popup after redirect
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("success") === "rebate") {
+      openPopup("Rebate filled successfully ✅");
+
+      // optional: clean URL
+      window.history.replaceState({}, document.title, "/");
+    }
+    fetch("/auth-status")
+      .then(res => res.json())
+      .then(data => {
+        const btn = document.getElementById("authBtn");
+        if (data.loggedIn) {
+          btn.textContent = "PRO";
+          btn.onclick = () => window.location.href = "/pro";
+        } else {
+          btn.textContent = "login";
+          btn.style.textAlign = "center";
+          btn.onclick = () => window.location.href = "/login";
+        }
+      });
+    fetch("/auth-status")
+      .then(res => res.json())
+      .then(data => {
+        const btni = document.getElementById("authBtni");
+        if (data.loggedIn) {
+          btni.textContent = "PRO";
+          btni.onclick = () => window.location.href = "/pro";
+        } else {
+          btni.textContent = "login";
+          btni.style.textAlign = "center";
+          btni.onclick = () => window.location.href = "/login";
+        }
+      });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="/js/script1.js"></script>
+</body>
+
+</html>

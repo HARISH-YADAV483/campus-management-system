@@ -1,0 +1,53 @@
+.slide{
+    opacity: 0;
+    animation: fadeIn  ease forwards;
+    animation-delay: 0s;
+    animation-duration: 5s;
+  }
+
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+ .card{
+  opacity: 0;
+    animation: fadeIn  ease forwards;
+    animation-delay: unset;
+    animation-duration: 2s;
+ }
+ @keyframes flash {
+    0%   { opacity: 1; }
+    50%  { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  .directions{
+background-color: rgb(6, 111, 6);
+color: white;
+font-weight: 500;
+height: 32px;
+border-radius: 9px;
+border: 1px solid black;
+margin-right: 29vw;
+width: 85px;
+text-align: center;
+align-items: center;
+
+  }
+  nav{
+    position: sticky ;
+    top: 0px;
+  }
+  .topa{
+    background-color: white;
+    position: fixed;
+    bottom: 9px;
+    right: 9px;
+    z-index: 9999999;
+    margin: 0;padding: 0;
+    text-align: center;
+    align-items: center;
+     width: 52px; height: 32px;
+     border: 1px solid green;
+     border-radius: 12px;
+  }

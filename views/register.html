@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Register</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background: linear-gradient(135deg, #4f46e5, #9333ea);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .card {
+      background: #fff;
+      width: 100%;
+      max-width: 400px;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      background: #4f46e5;
+      color: #fff;
+      font-size: 15px;
+      cursor: pointer;
+      margin-bottom: 10px;
+    }
+
+    button:hover {
+      background: #4338ca;
+    }
+
+    .link {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .link a {
+      text-decoration: none;
+      color: #4f46e5;
+      font-weight: bold;
+    }
+
+    /* ===== Popup ===== */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.4);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    .popup-box {
+      background: #fff;
+      padding: 20px 25px;
+      border-radius: 10px;
+      width: 90%;
+      max-width: 320px;
+      text-align: center;
+      position: relative;
+      animation: pop 0.3s ease;
+    }
+
+    .loader {
+      width: 40px;
+      height: 40px;
+      border: 4px solid #ddd;
+      border-top: 4px solid #4f46e5;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 10px auto;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    @keyframes pop {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 8px;
+      right: 10px;
+      font-size: 18px;
+      cursor: pointer;
+      color: #555;
+    }
+
+    .popup-box p {
+      margin: 0;
+      font-size: 16px;
+      color: #333;
+    }
+
+    @media (max-width: 480px) {
+      .card {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>Register</h2>
+
+    <form action="/register" method="POST" onsubmit="return checkOTPVerified()">
+
+
+      <input type="email" id="email" name="email" placeholder="Enter email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <button type="button" onclick="sendOTP()">Send OTP</button>
+
+      <input type="text" id="otp" placeholder="Enter OTP" required>
+      <button type="button" onclick="verifyOTP()">Verify OTP</button>
+
+      <button type="submit" id="registerBtn" disabled>
+        Register
+      </button>
+    </form>
+
+    <div class="link">
+      <a href="/login">Already have an account?</a>
+    </div>
+  </div>
+
+  <!-- Popup -->
+<div class="popup" id="popup">
+  <div class="popup-box">
+    <span class="close-btn" onclick="closePopup()">✖</span>
+
+    <!-- Loader -->
+    <div class="loader" id="loader"></div>
+
+    <!-- Message -->
+    <p id="popupMessage"></p>
+  </div>
+</div>
+
+  <script>
+let otpVerified = false;
+
+function openPopup(showLoader = false, message = "") {
+  const popup = document.getElementById("popup");
+  const loader = document.getElementById("loader");
+  const msg = document.getElementById("popupMessage");
+
+  popup.style.display = "flex";
+
+  if (showLoader) {
+    loader.style.display = "block";
+    msg.style.display = "none";
+  } else {
+    loader.style.display = "none";
+    msg.style.display = "block";
+    msg.innerText = message;
+  }
+}
+
+function closePopup() {
+  document.getElementById("popup").style.display = "none";
+}
+
+function checkOTPVerified() {
+  if (!otpVerified) {
+    openPopup(false, "Please verify OTP before registering");
+    return false;
+  }
+  return true;
+}
+
+async function sendOTP() {
+  const email = document.getElementById("email").value;
+
+  if (!email) {
+    openPopup(false, "Please enter email first");
+    return;
+  }
+
+  // ✅ SHOW LOADER
+  openPopup(true);
+
+  try {
+    const res = await fetch("/send-otp", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email })
+    });
+
+    const data = await res.json();
+
+    // ⏳ small delay so loader is visible
+    setTimeout(() => {
+      openPopup(false, data.message || "OTP sent successfully");
+    }, 800);
+
+  } catch (err) {
+    openPopup(false, "Failed to send OTP");
+  }
+}
+
+async function verifyOTP() {
+  const email = document.getElementById("email").value;
+  const otp = document.getElementById("otp").value;
+
+  openPopup(true);
+
+  const res = await fetch("/verify-otp", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ email, otp })
+  });
+
+  const data = await res.json();
+
+  setTimeout(() => {
+    openPopup(false, data.message);
+  }, 600);
+
+  if (data.message.toLowerCase().includes("success")) {
+    otpVerified = true;
+    document.getElementById("registerBtn").disabled = false;
+  }
+}
+</script>
+
+</body>
+
+</html>

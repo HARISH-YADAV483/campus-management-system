@@ -1,0 +1,45 @@
+@media only screen and (min-width:890px) {
+     .containeru {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    
+      width: 98vw;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-between;
+    }
+    .imgi{
+height: 60vh;
+width: auto;
+    }
+    .h1{
+        display: block;
+        color: rgb(5, 78, 5);
+        margin-bottom: 79px;
+        text-decoration: underline;
+    }
+    .text-box{
+        display: flex;
+        flex-direction: column;
+    }
+    .oi{
+        color: rgb(31, 31, 31);
+    }
+}
+@media only screen and (max-width:890px) {
+     .containeru {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+ 
+      width: 98vw;
+      margin-left: auto;
+      margin-right: auto;
+      justify-content: space-between;
+    }
+      .imgi{
+height: 40vh;
+width: auto;
+    }
+}

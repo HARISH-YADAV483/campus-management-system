@@ -1,0 +1,99 @@
+@media only screen and (max-width:890px) {
+.noti{
+      
+        width: 100vw;
+        margin: 0;padding: 0;
+       
+    }
+    .killu{
+        width: 92vw;
+        margin-right: 1vw;
+        margin-left: 3vw;
+        border: 1px solid rgb(32, 32, 32);
+        border-radius: 9px;
+        overflow: hidden;
+        margin-bottom: 12px;
+    }
+    .head
+{ margin-top: 5px;
+    height: 45px;
+    background-color: rgb(8, 89, 8);
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    align-items: center;
+
+
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.end{
+height: 25px;
+margin-bottom: 5px;
+ margin-left: 5px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+.beech{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+.bhuj{
+    height: 370px;
+    width: 100%;
+}
+
+}
+@media only screen and (min-width:890px) {
+    .noti{
+        display: flex;
+        width: 100vw;
+        margin: 0;padding: 0;
+        height: 480px;
+       
+    }
+    .killu{
+        width: 38vw;
+        
+        border: 1px solid rgb(32, 32, 32);
+        border-radius: 9px;
+        overflow: hidden;
+    }
+    .killul{
+        margin-right: 3vw;
+        margin-left: 9vw;
+    }
+    .killur{
+        margin-right: 9vw;
+        margin-left: 3vw;
+    }
+    .head
+{ margin-top: 5px;
+    height: 45px;
+    background-color: rgb(8, 89, 8);
+    color: white;
+    font-size: 23px;
+    text-align: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+.end{
+height: 25px;
+margin-bottom: 5px;
+ margin-left: 5px;
+    margin-right: 5px;
+    font-size: 16px;
+}
+.beech{
+    margin-left: 5px;
+    margin-right: 5px;
+
+}
+.bhuj{
+    height: 400px;
+    width: 100%;
+}
+}
+

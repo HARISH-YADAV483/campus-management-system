@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Secure Pro Access</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background: radial-gradient(circle at top, #1b1f2a, #0b0e14);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #e5e7eb;
+    }
+
+    .lock-container {
+      width: 100%;
+      max-width: 420px;
+      padding: 2.5rem 2rem;
+      background: rgba(15, 18, 30, 0.9);
+      border-radius: 16px;
+      box-shadow:
+        0 0 40px rgba(0, 255, 200, 0.15),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+      text-align: center;
+      animation: fadeIn 0.6s ease;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(15px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .lock-icon {
+      font-size: 3rem;
+      margin-bottom: 0.8rem;
+      color: #22d3ee;
+    }
+
+    h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      letter-spacing: 0.5px;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: #9ca3af;
+      margin-bottom: 2rem;
+    }
+
+    input[type="password"] {
+      width: 100%;
+      padding: 0.9rem 1rem;
+      font-size: 1rem;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: #0b0e14;
+      color: #fff;
+      outline: none;
+      transition: border 0.2s, box-shadow 0.2s;
+    }
+
+    input[type="password"]::placeholder {
+      color: #6b7280;
+    }
+
+    input[type="password"]:focus {
+      border-color: #22d3ee;
+      box-shadow: 0 0 0 2px rgba(34, 211, 238, 0.25);
+    }
+
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.9rem;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #22d3ee, #06b6d4);
+      color: #020617;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 8px 25px rgba(34, 211, 238, 0.35);
+    }
+
+    button:active {
+      transform: translateY(0);
+      box-shadow: none;
+    }
+
+    .footer-note {
+      margin-top: 1.5rem;
+      font-size: 0.75rem;
+      color: #6b7280;
+      letter-spacing: 0.4px;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 480px) {
+      .lock-container {
+        margin: 1rem;
+        padding: 2rem 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.35rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="lock-container">
+    <div class="lock-icon">🔒</div>
+    <h2>Secure Pro Access</h2>
+    <div class="subtitle">Authorized personnel only</div>
+
+    <form action="/pro-auth" method="POST">
+      <input
+        type="password"
+        name="specialPassword"
+        placeholder="Enter secure passcode"
+        required
+      />
+      <button type="submit">Unlock Access</button>
+    </form>
+
+    <div class="footer-note">
+      This system is monitored and protected
+    </div>
+  </div>
+</body>
+</html>

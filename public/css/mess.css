@@ -1,0 +1,216 @@
+@media only screen and (min-width:1028px) {
+    .messintro{
+        width: 90vw;
+        margin-left: 5vw;
+        margin-right: 5vw;
+        display: flex;
+        justify-content: space-around;
+        gap: 40px;
+       
+        border-top-right-radius: 154px;
+        
+
+
+    }
+    .platephoto{
+margin-right: 1vw;
+width: 35vw;
+border-radius: 19px;
+
+    }
+    .platepage{
+margin-left: 0vw;
+width: 46vw;
+margin-top: auto;
+margin-bottom: auto;
+
+    }
+    .headplate{
+        margin-top: 0vh ;
+        margin-bottom: 5px;
+        word-spacing: 9px;
+    }
+    .underline{
+        width: 20vw ;
+        margin-right: 20vw;
+        margin-left: 2vw;
+        height: 4px;
+        background-color: rgb(233, 98, 2);
+        border-radius: 12px;
+        margin-bottom: 15px;
+    }
+    .H11{
+         
+    color: rgb(233, 98, 2);
+    
+    letter-spacing: 4px;
+    font-size: 53px;
+ 
+
+  font-family: Raleway Dots;
+  font-weight: 400;
+  font-style: normal;
+  text-decoration: dashed;
+    }
+    .platepnna{
+        letter-spacing: 2px;
+        word-spacing: 4px;
+        line-height: 25px;
+    }
+}
+@media only screen and (min-width:400px) and (max-width : 1028px) {
+
+.platephoto{
+    display: flex;
+   max-width: 400px;
+    justify-content: center;
+    margin-right: auto;
+    margin-left: auto;
+    height: auto;
+    border-radius: 12px;
+}
+
+}
+@media only screen and (max-width : 400px){
+   .platephoto{ width: 100vw;
+    height: auto;
+    border-radius: 12px;
+   }
+     .platepnna{
+        letter-spacing: 1px;
+        word-spacing: 3px;
+        line-height: 18px;
+        font-weight: lighter;
+    }
+     .H11{
+        margin-top: 12px;
+         
+    color: rgb(233, 98, 2);
+    
+    letter-spacing: 4px;
+    font-size: 27px;
+ 
+
+  font-family: Raleway Dots;
+  font-weight: 400;
+  font-style: normal;
+ 
+    }
+     .underline{
+        width: 40vw ;
+        margin-right: 55vw;
+        margin-left: 2vw;
+        height: 4px;
+        background-color: rgb(233, 98, 2);
+        border-radius: 12px;
+        margin-top: 0px;
+        margin-bottom: 12px;
+        
+    }
+}
+ .rebatef{
+    font-family: "Segoe UI", Tahoma, sans-serif;
+   
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+
+  .form-container {
+    background: #ffffff;
+    max-width: 1100px;
+    width: 100%;
+    padding: 30px 40px;
+    border-radius: 14px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+    animation: fadeSlide 0.8s ease-in-out;
+  }
+
+  @keyframes fadeSlide {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .h1 {
+    text-align: center;
+    margin-bottom: 6px;
+    color: #1a237e;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 14px;
+    margin-bottom: 6px;
+    color: #333;
+    font-weight: 500;
+  }
+
+  input {
+    padding: 10px 12px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+
+  input:focus {
+    border-color: #3949ab;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(57, 73, 171, 0.15);
+  }
+
+  .full-width {
+    grid-column: span 3;
+  }
+
+  .btnuu {
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #3949ab, #1e88e5);
+    color: white;
+    cursor: pointer;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .btnuu:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(30, 136, 229, 0.35);
+  }
+
+  /* Responsive Layout */
+  @media (max-width: 1028px) {
+    form {
+      grid-template-columns: 1fr;
+    }
+
+    .full-width {
+      grid-column: span 1;
+    }
+  }
