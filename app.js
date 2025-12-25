@@ -455,7 +455,7 @@ app.post("/send-otp", async (req, res) => {
   otpStore[email] = otp;
 
   await transporter.sendMail({
-    from: "harish2puhaniya@gmail.com",
+    from: process.env.EMAIL_USER,
     to: email,
     subject: "Your OTP Code",
     text: `Your OTP is ${otp}`
@@ -508,14 +508,14 @@ app.post("/send-complaint", async (req, res) => {
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
-        user: "harish2puhaniya@gmail.com",      // RECEIVER Gmail (or sender Gmail)
-        pass: "uvzxlytyobfjxnjl"         // Gmail App Password
+        user: process.env.EMAIL_USER,      // RECEIVER Gmail (or sender Gmail)
+        pass: process.env.EMAIL_PASS        // Gmail App Password
       }
     });
 
     const mailOptions = {
       from: userEmail,
-      to: "yourgmail@gmail.com",          // Complaint receiver
+        to: process.env.EMAIL_USER,          // Complaint receiver
       subject: "New Complaint Received",
       text: `Complaint from: ${userEmail}\n\n${complaintText}`,
       replyTo: userEmail
