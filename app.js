@@ -59,7 +59,7 @@ mongoose.connect(process.env.MONGODB_URI)
     // Defensive fix: drop old `email_1` unique index that can cause
     // duplicate-key errors when documents don't have an `email` field.
     try {
-      const coll = mongoose.connection.db.collection("user");
+      const coll = mongoose.connection.db.collection("users");
       const indexes = await coll.indexes();
       const hasEmailIndex = indexes.some(idx => idx.name === "email_1");
       if (hasEmailIndex) {
